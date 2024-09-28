@@ -1,25 +1,142 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import TeamCard from "./teamCard";
 
 // custom data
-
 const slides = [
   {
     title: "Deputy Managing Director",
-    cards: 4,
-    cardsContent: ["Card 1", "Card 2", "Card 3", "Card 4"],
+    cards: 3,
+    cardsContent: [
+      {
+        image:'/images/profile.jpg',
+        post:'Deputy Managing Director',
+        name:'Engr.Sattyajit Ghosh',
+        rank:'Regional Marketing Division-',
+        city:'Mymensingh',
+        phone:['9155258','01939921164'],
+        email:'dmd.mymensingh@titasgas.org.bd'
+      },
+      {
+        image:'/images/profile.jpg',
+        post:'Deputy Managing Director',
+        name:'Engr.Kazi Mohammad Saidul Hasan',
+        rank:'Regional Marketing Division-',
+        city:'Gazipur',
+        phone:['9262118','01939921166'],
+        email:'dmd.gazipur@titasgas.org.bd'
+      },
+      {
+        image:'/images/profile.jpg',
+        post:'Deputy Managing Director',
+        name:'Engr.Md.Anisur Rahman',
+        rank:'Regional Marketing Division-',
+        city:'N.Gong',
+        phone:['9750018','01939921165'],
+        email:'dmd.gazipur@titasgas.org.bd'
+      }
+    ],
   },
   {
     title: "General Manager",
-    cards: 5,
-    cardsContent: ["Card 1", "Card 2", "Card 3", "Card 4", "Card 5"],
+    cards: 9,
+    cardsContent: [
+      {
+        image:'/images/profile.jpg',
+        post:'General Manager',
+        name:'Md.Faizul Bari',
+        rank:'Engineering Services',
+        city:'Division',
+        code:'41010000-04/309',
+        phone:'01939921162',
+        email:'gm.esd@titasgas.org.bd'
+      },
+      {
+        image:'/images/profile.jpg',
+        post:'General Manager',
+        name:'S. M. Alinur Rahman',
+        rank:'Engineering Services',
+        city:'Division',
+        code:'41010000-04/309',
+        phone:'01939921162',
+        email:'gm.esd@titasgas.org.bd'
+      },
+      {
+        image:'/images/profile.jpg',
+        post:'General Manager',
+        name:'Md. Motahar Hossain',
+        rank:'Engineering Services',
+        city:'Division',
+        code:'41010000-04/309',
+        phone:'01939921162',
+        email:'gm.esd@titasgas.org.bd'
+      },
+      {
+        image:'/images/profile.jpg',
+        post:'General Manager',
+        name:'Md. Tariq Anis Khan',
+        rank:'Engineering Services',
+        city:'Division',
+        code:'41010000-04/309',
+        phone:'01939921162',
+        email:'gm.esd@titasgas.org.bd'
+      },
+      {
+        image:'/images/profile.jpg',
+        post:'General Manager',
+        name:'',
+        rank:'Engineering Services',
+        city:'Division',
+        code:'41010000-04/309',
+        phone:'01939921162',
+        email:'gm.esd@titasgas.org.bd'
+      },
+      {
+        image:'/images/profile.jpg',
+        post:'General Manager',
+        name:'Engr.Md.Salim Miah',
+        rank:'Engineering Services',
+        city:'Division',
+        code:'41010000-04/309',
+        phone:'01939921162',
+        email:'gm.esd@titasgas.org.bd'
+      },
+      {
+        image:'/images/profile.jpg',
+        post:'General Manager',
+        name:'Md. Emam Uddin Sheikh',
+        rank:'Engineering Services',
+        city:'Division',
+        code:'41010000-04/309',
+        phone:'01939921162',
+        email:'gm.esd@titasgas.org.bd'
+      },
+      {
+        image:'/images/profile.jpg',
+        post:'General Manager',
+        name:'Akond Md.Mahbubul Islam',
+        rank:'Engineering Services',
+        city:'Division',
+        code:'41010000-04/309',
+        phone:'01939921162',
+        email:'gm.esd@titasgas.org.bd'
+      },
+      {
+        image:'/images/profile.jpg',
+        post:'General Manager',
+        name:'Arpana Islam',
+        rank:'Engineering Services',
+        city:'Division',
+        code:'41010000-04/309',
+        phone:'01939921162',
+        email:'gm.esd@titasgas.org.bd'
+      },
+    ],
   },
   {
     title: "Operations Manager",
-    cards: 7,
+    cards: 6,
     cardsContent: [
       "Card 1",
       "Card 2",
@@ -27,85 +144,124 @@ const slides = [
       "Card 4",
       "Card 5",
       "Card 6",
-      "Card 7",
+      
     ],
   },
 ];
 
 export default function CustomSlider() {
   const [currentTitle, setCurrentTitle] = useState(slides[0].title);
+  const [showFullImage, setShowFullImage] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowFullImage(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const settings = {
-    dots: false, // Hide dots
-    arrows:false,  // Hide prev/next buttons
+    dots: false,
+    arrows: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    beforeChange: (oldIndex, newIndex) =>
-      setCurrentTitle(slides[newIndex].title),
+    autoplay: true,
+    autoplaySpeed: 8000,
+    beforeChange: (oldIndex, newIndex) => setCurrentTitle(slides[newIndex].title),
+    draggable: false, 
   };
 
   return (
-    <div className="flex h-screen">
-      {/* Main Content Area (80% width) */}
-      <div className="w-4/5">
-        {/* Header */}
-        <header className="fixed w-full top-0 p-4 bg-gray-800 text-white flex justify-between z-10">
-          <h1 className="text-2xl">Fixed Title</h1>
-          <h2 className="text-xl">{currentTitle}</h2>
-        </header>
-
-        {/* Slider Section */}
-        <div className="h-full pt-16 pb-16">
-        <h2 className="text-xl">{currentTitle}</h2>
-          <Slider {...settings}>
-            {slides.map((slide, index) => (
-              <div
-                key={index}
-                className="h-full flex justify-center items-center"
-              >
-                <div
-                  className={`grid grid-cols-${Math.min(
-                    slide.cards,
-                    3
-                  )} gap-4 w-3/4`}
-                >
-                  {slide.cardsContent.map((card, cardIndex) => (
-                    <div
-                      key={cardIndex}
-                    >
-                      <TeamCard/>
-                    </div>
-                  ))}
+    <div className=""> 
+      {showFullImage ? (
+        <div className="fixed inset-0 w-full h-full bg-black">
+          <img
+            className="w-full h-full object-cover"
+            src="/images/Slide-Show-home-page.png"
+            alt="Full screen"
+          />
+        </div>
+      ) : (
+        <div className="flex h-screen"> 
+          {/* Main Content Area (80% width) */}
+          <div className="w-4/5 h-full">
+            {/* Header */}
+            <header className="w-full p-4 bg-gray-800 text-white flex items-center z-10">
+              <div>
+                <img className="h-16" src="/images/logo-1.png" alt="logo" />
+              </div>
+              <div className="flex items-center justify-center w-full">
+                <div className="text-center">
+                  <h2 className="text-4xl mb-2">
+                    Titas Gas Transmission & Distribution Company Limited
+                  </h2>
+                  <h2 className="text-3xl underline">{currentTitle}</h2>
                 </div>
               </div>
-            ))}
-          </Slider>
-        </div>
+            </header>
 
-        {/* Footer */}
-        <footer className="fixed w-full bottom-0 p-4 bg-gray-800 text-white">
-          <marquee>Titas Gas Transmission & Distribution Company Limited</marquee>
-        </footer>
-      </div>
+            {/* Slider Section */}
+            <div className="h-full py-8">
+              <Slider {...settings}>
+                {slides.map((slide, index) => (
+                  <div
+                    key={index}
+                    className="h-full flex justify-center items-center"
+                  >
+                    <div className="flex flex-wrap justify-center items-center gap-6 w-full px-4">
+                      {slide.cardsContent.map((card, cardIndex) => (
+                        <div key={cardIndex} className="!flex">
+                          <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                            <img
+                              className="object-cover w-full h-48 md:w-48 md:rounded-none md:rounded-s-lg"
+                              src="/images/profile.jpg"
+                              alt=""
+                            />
+                            <div className="flex flex-col justify-between p-4 leading-normal">
+                              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                Noteworthy technology acquisitions 2021
+                              </h5>
+                              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                Here are the biggest enterprise technology acquisitions of 2021 so far.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            </div>
 
-      {/* Video Section (20% width) */}
+            {/* Footer */}
+            <footer className="fixed w-full bottom-0 p-4 bg-gray-800 text-white text-2xl">
+              <marquee>
+                Titas Gas Transmission & Distribution Company Limited
+              </marquee>
+            </footer>
+          </div>
 
-      <div className="w-1/5 bg-gray-900 text-white p-0 flex flex-col justify-between items-center h-full">
-        <div className="h-1/2 w-full">
-          <video className="h-full w-full object-cover" autoPlay muted loop>
-            <source src="videos/sample_video-1.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          {/* Video Section (20% width) */}
+          <div className="w-1/5 bg-gray-900 text-white h-full flex flex-col justify-between items-center">
+            <div className="h-screen w-full">
+              <video className="h-full w-full object-cover" autoPlay muted loop>
+                <source src="videos/sample_video-1.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div className="h-screen w-full">
+              <video className="h-full w-full object-cover" autoPlay muted loop>
+                <source src="videos/sample_video-2.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
         </div>
-        <div className="h-1/2 w-full">
-          <video className="h-full w-full object-cover" autoPlay muted loop>
-            <source src="videos/sample_video-2.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
+      )}
     </div>
   );
 }
