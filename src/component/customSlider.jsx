@@ -85,7 +85,7 @@ const slides = [
       {
         image:'/images/profile.jpg',
         post:'General Manager',
-        name:'',
+        name:'Rifat Karim',
         rank:'Engineering Services',
         city:'Division',
         code:'41010000-04/309',
@@ -136,14 +136,18 @@ const slides = [
   },
   {
     title: "Operations Manager",
-    cards: 6,
+    cards: 1,
     cardsContent: [
-      "Card 1",
-      "Card 2",
-      "Card 3",
-      "Card 4",
-      "Card 5",
-      "Card 6",
+      {
+        image:'/images/profile.jpg',
+        post:'General Manager',
+        name:'Arpana Islam',
+        rank:'Engineering Services',
+        city:'Division',
+        code:'41010000-04/309',
+        phone:'01939921162',
+        email:'gm.esd@titasgas.org.bd'
+      },
       
     ],
   },
@@ -214,18 +218,34 @@ export default function CustomSlider() {
                     <div className="flex flex-wrap justify-center items-center gap-6 w-full px-4">
                       {slide.cardsContent.map((card, cardIndex) => (
                         <div key={cardIndex} className="!flex">
+                          
                           <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                             <img
-                              className="object-cover w-full h-48 md:w-48 md:rounded-none md:rounded-s-lg"
-                              src="/images/profile.jpg"
+                              className="object-cover w-full h-full md:w-48 md:rounded-none md:rounded-s-lg"
+                              src={card.image}
                               alt=""
                             />
                             <div className="flex flex-col justify-between p-4 leading-normal">
-                              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                Noteworthy technology acquisitions 2021
-                              </h5>
-                              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                Here are the biggest enterprise technology acquisitions of 2021 so far.
+                              <p className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                {card.name}
+                              </p>
+                              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
+                                {card.post}
+                              </p>
+                              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
+                                {card.rank}
+                              </p>
+                              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
+                                {card.city}
+                              </p>
+                              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
+                                {card.code}
+                              </p>
+                              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
+                                {card.phone}
+                              </p>
+                              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
+                                {card.email}
                               </p>
                             </div>
                           </div>
