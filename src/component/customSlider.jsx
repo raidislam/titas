@@ -1,206 +1,211 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { getMembers } from "../services/api.js";
+import "slick-carousel/slick/slick.css";
+import { getMembers } from "../services/api";
 
 // custom data
-const slides = [
-  {
-    title: "Deputy Managing Director",
-    cards: 3,
-    cardsContent: [
-      {
-        image: "/images/profile.jpg",
-        post: "Deputy Managing Director",
-        name: "Engr.Sattyajit Ghosh",
-        rank: "Regional Marketing Division-",
-        city: "Mymensingh",
-        phone: ["9155258", "01939921164"],
-        email: "dmd.mymensingh@titasgas.org.bd",
-        bgColor: "blue",
-      },
-      {
-        image: "/images/profile.jpg",
-        post: "Deputy Managing Director",
-        name: "Engr.Kazi Mohammad Saidul Hasan",
-        rank: "Regional Marketing Division-",
-        city: "Gazipur",
-        phone: ["9262118", "01939921166"],
-        email: "dmd.gazipur@titasgas.org.bd",
-        bgColor: "#FFB0B0",
-      },
-      {
-        image: "/images/profile.jpg",
-        post: "Deputy Managing Director",
-        name: "Engr.Md.Anisur Rahman",
-        rank: "Regional Marketing Division-",
-        city: "N.Gong",
-        phone: ["9750018", "01939921165"],
-        email: "dmd.gazipur@titasgas.org.bd",
-        bgColor: "#BF2EF0",
-      },
-    ],
-  },
-  {
-    title: "General Manager",
-    cards: 9,
-    cardsContent: [
-      {
-        image: "/images/profile.jpg",
-        post: "General Manager",
-        name: "Md.Faizul Bari",
-        rank: "Engineering Services",
-        city: "Division",
-        code: "41010000-04/309",
-        phone: "01939921162",
-        email: "gm.esd@titasgas.org.bd",
-        bgColor: "#BF2EF0",
-      },
-      {
-        image: "/images/profile.jpg",
-        post: "General Manager",
-        name: "S. M. Alinur Rahman",
-        rank: "Engineering Services",
-        city: "Division",
-        code: "41010000-04/309",
-        phone: "01939921162",
-        email: "gm.esd@titasgas.org.bd",
-        bgColor: "#BF2EF0",
-      },
-      {
-        image: "/images/profile.jpg",
-        post: "General Manager",
-        name: "Md. Motahar Hossain",
-        rank: "Engineering Services",
-        city: "Division",
-        code: "41010000-04/309",
-        phone: "01939921162",
-        email: "gm.esd@titasgas.org.bd",
-        bgColor: "#BF2EF0",
-      },
-      {
-        image: "/images/profile.jpg",
-        post: "General Manager",
-        name: "Md. Tariq Anis Khan",
-        rank: "Engineering Services",
-        city: "Division",
-        code: "41010000-04/309",
-        phone: "01939921162",
-        email: "gm.esd@titasgas.org.bd",
-        bgColor: "#BF2EF0",
-      },
-      {
-        image: "/images/profile.jpg",
-        post: "General Manager",
-        name: "Rifat Karim",
-        rank: "Engineering Services",
-        city: "Division",
-        code: "41010000-04/309",
-        phone: "01939921162",
-        email: "gm.esd@titasgas.org.bd",
-        bgColor: "#BF2EF0",
-      },
-      {
-        image: "/images/profile.jpg",
-        post: "General Manager",
-        name: "Engr.Md.Salim Miah",
-        rank: "Engineering Services",
-        city: "Division",
-        code: "41010000-04/309",
-        phone: "01939921162",
-        email: "gm.esd@titasgas.org.bd",
-        bgColor: "#BF2EF0",
-      },
-      {
-        image: "/images/profile.jpg",
-        post: "General Manager",
-        name: "Md. Emam Uddin Sheikh",
-        rank: "Engineering Services",
-        city: "Division",
-        code: "41010000-04/309",
-        phone: "01939921162",
-        email: "gm.esd@titasgas.org.bd",
-        bgColor: "#181C14",
-      },
-      {
-        image: "/images/profile.jpg",
-        post: "General Manager",
-        name: "Akond Md.Mahbubul Islam",
-        rank: "Engineering Services",
-        city: "Division",
-        code: "41010000-04/309",
-        phone: "01939921162",
-        email: "gm.esd@titasgas.org.bd",
-        bgColor: "#3C3D37",
-      },
-      {
-        image: "/images/profile.jpg",
-        post: "General Manager",
-        name: "Arpana Islam",
-        rank: "Engineering Services",
-        city: "Division",
-        code: "41010000-04/309",
-        phone: "01939921162",
-        email: "gm.esd@titasgas.org.bd",
-      },
-    ],
-  },
-  {
-    title: "Operations Manager",
-    cards: 1,
-    cardsContent: [
-      {
-        image: "/images/profile.jpg",
-        post: "General Manager",
-        name: "Arpana Islam",
-        rank: "Engineering Services",
-        city: "Division",
-        code: "41010000-04/309",
-        phone: "01939921162",
-        email: "gm.esd@titasgas.org.bd",
-      },
-    ],
-  },
-];
+// const slides = [
+//   {
+//     title: "Deputy Managing Director",
+//     cards: 3,
+//     cardsContent: [
+//       {
+//         image: "/images/profile.jpg",
+//         post: "Deputy Managing Director",
+//         name: "Engr.Sattyajit Ghosh",
+//         rank: "Regional Marketing Division-",
+//         city: "Mymensingh",
+//         phone: ["9155258", "01939921164"],
+//         email: "dmd.mymensingh@titasgas.org.bd",
+//         bgColor: "blue",
+//       },
+//       {
+//         image: "/images/profile.jpg",
+//         post: "Deputy Managing Director",
+//         name: "Engr.Kazi Mohammad Saidul Hasan",
+//         rank: "Regional Marketing Division-",
+//         city: "Gazipur",
+//         phone: ["9262118", "01939921166"],
+//         email: "dmd.gazipur@titasgas.org.bd",
+//         bgColor: "#FFB0B0",
+//       },
+//       {
+//         image: "/images/profile.jpg",
+//         post: "Deputy Managing Director",
+//         name: "Engr.Md.Anisur Rahman",
+//         rank: "Regional Marketing Division-",
+//         city: "N.Gong",
+//         phone: ["9750018", "01939921165"],
+//         email: "dmd.gazipur@titasgas.org.bd",
+//         bgColor: "#BF2EF0",
+//       },
+//     ],
+//   },
+//   {
+//     title: "General Manager",
+//     cards: 9,
+//     cardsContent: [
+//       {
+//         image: "/images/profile.jpg",
+//         post: "General Manager",
+//         name: "Md.Faizul Bari",
+//         rank: "Engineering Services",
+//         city: "Division",
+//         code: "41010000-04/309",
+//         phone: "01939921162",
+//         email: "gm.esd@titasgas.org.bd",
+//         bgColor: "#BF2EF0",
+//       },
+//       {
+//         image: "/images/profile.jpg",
+//         post: "General Manager",
+//         name: "S. M. Alinur Rahman",
+//         rank: "Engineering Services",
+//         city: "Division",
+//         code: "41010000-04/309",
+//         phone: "01939921162",
+//         email: "gm.esd@titasgas.org.bd",
+//         bgColor: "#BF2EF0",
+//       },
+//       {
+//         image: "/images/profile.jpg",
+//         post: "General Manager",
+//         name: "Md. Motahar Hossain",
+//         rank: "Engineering Services",
+//         city: "Division",
+//         code: "41010000-04/309",
+//         phone: "01939921162",
+//         email: "gm.esd@titasgas.org.bd",
+//         bgColor: "#BF2EF0",
+//       },
+//       {
+//         image: "/images/profile.jpg",
+//         post: "General Manager",
+//         name: "Md. Tariq Anis Khan",
+//         rank: "Engineering Services",
+//         city: "Division",
+//         code: "41010000-04/309",
+//         phone: "01939921162",
+//         email: "gm.esd@titasgas.org.bd",
+//         bgColor: "#BF2EF0",
+//       },
+//       {
+//         image: "/images/profile.jpg",
+//         post: "General Manager",
+//         name: "Rifat Karim",
+//         rank: "Engineering Services",
+//         city: "Division",
+//         code: "41010000-04/309",
+//         phone: "01939921162",
+//         email: "gm.esd@titasgas.org.bd",
+//         bgColor: "#BF2EF0",
+//       },
+//       {
+//         image: "/images/profile.jpg",
+//         post: "General Manager",
+//         name: "Engr.Md.Salim Miah",
+//         rank: "Engineering Services",
+//         city: "Division",
+//         code: "41010000-04/309",
+//         phone: "01939921162",
+//         email: "gm.esd@titasgas.org.bd",
+//         bgColor: "#BF2EF0",
+//       },
+//       {
+//         image: "/images/profile.jpg",
+//         post: "General Manager",
+//         name: "Md. Emam Uddin Sheikh",
+//         rank: "Engineering Services",
+//         city: "Division",
+//         code: "41010000-04/309",
+//         phone: "01939921162",
+//         email: "gm.esd@titasgas.org.bd",
+//         bgColor: "#181C14",
+//       },
+//       {
+//         image: "/images/profile.jpg",
+//         post: "General Manager",
+//         name: "Akond Md.Mahbubul Islam",
+//         rank: "Engineering Services",
+//         city: "Division",
+//         code: "41010000-04/309",
+//         phone: "01939921162",
+//         email: "gm.esd@titasgas.org.bd",
+//         bgColor: "#3C3D37",
+//       },
+//       {
+//         image: "/images/profile.jpg",
+//         post: "General Manager",
+//         name: "Arpana Islam",
+//         rank: "Engineering Services",
+//         city: "Division",
+//         code: "41010000-04/309",
+//         phone: "01939921162",
+//         email: "gm.esd@titasgas.org.bd",
+//       },
+//     ],
+//   },
+//   {
+//     title: "Operations Manager",
+//     cards: 1,
+//     cardsContent: [
+//       {
+//         image: "/images/profile.jpg",
+//         post: "General Manager",
+//         name: "Arpana Islam",
+//         rank: "Engineering Services",
+//         city: "Division",
+//         code: "41010000-04/309",
+//         phone: "01939921162",
+//         email: "gm.esd@titasgas.org.bd",
+//       },
+//     ],
+//   },
+// ];
 
-const videoFile = [
-  {
-    id: 1,
-    videoUrl: "videos/sample_video-1.mp4",
-  },
-  {
-    id: 2,
-    videoUrl: "videos/sample_video-2.mp4",
-  },
-  {
-    id: 3,
-    videoUrl: "videos/sample_video-3.mp4",
-  },
-  {
-    id: 4,
-    videoUrl: "videos/sample_video-4.mp4",
-  },
-  {
-    id: 5,
-    videoUrl: "videos/sample_video-5.mp4",
-  },
-];
+// const videoFile = [
+//   {
+//     id: 1,
+//     videoUrl: "videos/sample_video-1.mp4",
+//   },
+//   {
+//     id: 2,
+//     videoUrl: "videos/sample_video-2.mp4",
+//   },
+//   {
+//     id: 3,
+//     videoUrl: "videos/sample_video-3.mp4",
+//   },
+//   {
+//     id: 4,
+//     videoUrl: "videos/sample_video-4.mp4",
+//   },
+//   {
+//     id: 5,
+//     videoUrl: "videos/sample_video-5.mp4",
+//   },
+// ];
 
 export default function CustomSlider() {
-  // const [slides, setSlides] = useState([]);
-  const [currentTitle, setCurrentTitle] = useState(slides[0]?.title);
+  const [slides, setSlides] = useState([]);
+  const [notice, setNotice] = useState([]);
+  const [tvcList, setTvcList] = useState([]);
+  const [currentTitle, setCurrentTitle] = useState(slides[0]?.company_name);
+  const [companyTitle, setCompanyTitle] = useState(slides[0]?.title);
   const [showFullImage, setShowFullImage] = useState(true);
 
-  // useEffect(() => {
-  //     // Fetch users when the component mounts
-  //     getMembers()
-  //         .then(response => {
-  //             setSlides(response.data);
-  //             setCurrentTitle(response.data[0]?.title || "");
-  //         })
-  //         .catch(error => console.error('Error fetching users:', error));
-  // }, []);
+  useEffect(() => {
+    // Fetch users when the component mounts
+    getMembers()
+      .then((response) => {
+        setSlides(response.data.slides);
+        setNotice(response.data.notices);
+        setTvcList(response.data.custom_screens);
+      })
+      .catch((error) => console.error("Error fetching users:", error));
+  }, [showFullImage]);
+  console.log("slides", { notice, slides, tvcList, companyTitle });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -218,9 +223,11 @@ export default function CustomSlider() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 6000,
-    beforeChange: (oldIndex, newIndex) =>
-      setCurrentTitle(slides[newIndex].title),
+    autoplaySpeed: 4000,
+    beforeChange: (oldIndex, newIndex) => {
+      setCurrentTitle(slides[newIndex].company_name);
+      setCompanyTitle(slides[newIndex].title);
+    },
     draggable: false,
   };
 
@@ -259,10 +266,8 @@ export default function CustomSlider() {
               </div>
               <div className="flex items-center justify-center w-full">
                 <div className="text-center">
-                  <h2 className="text-4xl mb-2">
-                    Titas Gas Transmission & Distribution Company Limited
-                  </h2>
-                  <h2 className="text-3xl underline">{currentTitle}</h2>
+                  <h2 className="text-4xl mb-2">{currentTitle}</h2>
+                  <h2 className="text-3xl underline">{companyTitle}</h2>
                 </div>
               </div>
             </header>
@@ -270,7 +275,7 @@ export default function CustomSlider() {
             {/* Slider Section */}
             <div className="h-full py-8">
               <Slider {...settings}>
-                {slides.map((slide, index) => (
+                {slides?.map((slide, index) => (
                   <div
                     key={index}
                     className="h-full flex justify-center items-center"
@@ -280,14 +285,20 @@ export default function CustomSlider() {
                         <div key={cardIndex} className="!flex">
                           <div
                             style={{
-                              backgroundColor: `${card.bgColor}`,
+                              backgroundColor: `${
+                                card.background_color
+                                  ? card.background_color
+                                  : "#f2f2f2"
+                              }`,
                             }}
                             className="flex flex-col items-center border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
                             <img
                               className="object-cover w-full h-full md:w-48 md:rounded-none md:rounded-s-lg"
-                              src={card.image}
-                              alt=""
+                              src={
+                                card.image ? card.image : "/images/profile.jpg"
+                              }
+                              alt="profile image"
                             />
                             <div className="flex flex-col justify-between p-4 leading-normal">
                               <p className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -361,16 +372,16 @@ export default function CustomSlider() {
           <div className="w-1/5 bg-gray-900 text-white h-full flex flex-col items-center">
             <div className="w-full h-1/2 py-4 px-2 flex items-center justify-center">
               <div>
-                <h2 className="text-2xl text-center  font-bold mb-2">Notice Board</h2>
-                <p className="text-lg text-center">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam molestiae fugit assumenda voluptate enim, voluptatum incidunt similique laboriosam ea officiis obcaecati in quisquam placeat ad! Nam explicabo expedita molestias, totam quis necessitatibus perspiciatis ipsam enim quaerat sapiente dolorem quos, deserunt modi id dolor ratione assumenda esse exercitationem commodi, temporibus eos.
-                </p>
+                <h2 className="text-2xl text-center  font-bold mb-2">
+                  Notice Board
+                </h2>
+                <p className="text-lg text-center">{notice?.[0]?.text_en}</p>
               </div>
             </div>
 
             <div className="w-full h-1/2">
               <Slider {...viddeoSettings} className="h-full">
-                {videoFile.map((item) => (
+                {tvcList?.map((item) => (
                   <div key={item?.id} className="h-full w-full">
                     <video
                       className="h-full w-full object-cover"
@@ -380,7 +391,7 @@ export default function CustomSlider() {
                       playsInline
                       preload="auto"
                     >
-                      <source src={item?.videoUrl} type="video/mp4" />
+                      <source src={item?.url} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
