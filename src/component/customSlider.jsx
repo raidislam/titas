@@ -4,195 +4,12 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import { getMembers } from "../services/api";
 
-// custom data
-// const slides = [
-//   {
-//     title: "Deputy Managing Director",
-//     cards: 3,
-//     cardsContent: [
-//       {
-//         image: "/images/profile.jpg",
-//         post: "Deputy Managing Director",
-//         name: "Engr.Sattyajit Ghosh",
-//         rank: "Regional Marketing Division-",
-//         city: "Mymensingh",
-//         phone: ["9155258", "01939921164"],
-//         email: "dmd.mymensingh@titasgas.org.bd",
-//         bgColor: "blue",
-//       },
-//       {
-//         image: "/images/profile.jpg",
-//         post: "Deputy Managing Director",
-//         name: "Engr.Kazi Mohammad Saidul Hasan",
-//         rank: "Regional Marketing Division-",
-//         city: "Gazipur",
-//         phone: ["9262118", "01939921166"],
-//         email: "dmd.gazipur@titasgas.org.bd",
-//         bgColor: "#FFB0B0",
-//       },
-//       {
-//         image: "/images/profile.jpg",
-//         post: "Deputy Managing Director",
-//         name: "Engr.Md.Anisur Rahman",
-//         rank: "Regional Marketing Division-",
-//         city: "N.Gong",
-//         phone: ["9750018", "01939921165"],
-//         email: "dmd.gazipur@titasgas.org.bd",
-//         bgColor: "#BF2EF0",
-//       },
-//     ],
-//   },
-//   {
-//     title: "General Manager",
-//     cards: 9,
-//     cardsContent: [
-//       {
-//         image: "/images/profile.jpg",
-//         post: "General Manager",
-//         name: "Md.Faizul Bari",
-//         rank: "Engineering Services",
-//         city: "Division",
-//         code: "41010000-04/309",
-//         phone: "01939921162",
-//         email: "gm.esd@titasgas.org.bd",
-//         bgColor: "#BF2EF0",
-//       },
-//       {
-//         image: "/images/profile.jpg",
-//         post: "General Manager",
-//         name: "S. M. Alinur Rahman",
-//         rank: "Engineering Services",
-//         city: "Division",
-//         code: "41010000-04/309",
-//         phone: "01939921162",
-//         email: "gm.esd@titasgas.org.bd",
-//         bgColor: "#BF2EF0",
-//       },
-//       {
-//         image: "/images/profile.jpg",
-//         post: "General Manager",
-//         name: "Md. Motahar Hossain",
-//         rank: "Engineering Services",
-//         city: "Division",
-//         code: "41010000-04/309",
-//         phone: "01939921162",
-//         email: "gm.esd@titasgas.org.bd",
-//         bgColor: "#BF2EF0",
-//       },
-//       {
-//         image: "/images/profile.jpg",
-//         post: "General Manager",
-//         name: "Md. Tariq Anis Khan",
-//         rank: "Engineering Services",
-//         city: "Division",
-//         code: "41010000-04/309",
-//         phone: "01939921162",
-//         email: "gm.esd@titasgas.org.bd",
-//         bgColor: "#BF2EF0",
-//       },
-//       {
-//         image: "/images/profile.jpg",
-//         post: "General Manager",
-//         name: "Rifat Karim",
-//         rank: "Engineering Services",
-//         city: "Division",
-//         code: "41010000-04/309",
-//         phone: "01939921162",
-//         email: "gm.esd@titasgas.org.bd",
-//         bgColor: "#BF2EF0",
-//       },
-//       {
-//         image: "/images/profile.jpg",
-//         post: "General Manager",
-//         name: "Engr.Md.Salim Miah",
-//         rank: "Engineering Services",
-//         city: "Division",
-//         code: "41010000-04/309",
-//         phone: "01939921162",
-//         email: "gm.esd@titasgas.org.bd",
-//         bgColor: "#BF2EF0",
-//       },
-//       {
-//         image: "/images/profile.jpg",
-//         post: "General Manager",
-//         name: "Md. Emam Uddin Sheikh",
-//         rank: "Engineering Services",
-//         city: "Division",
-//         code: "41010000-04/309",
-//         phone: "01939921162",
-//         email: "gm.esd@titasgas.org.bd",
-//         bgColor: "#181C14",
-//       },
-//       {
-//         image: "/images/profile.jpg",
-//         post: "General Manager",
-//         name: "Akond Md.Mahbubul Islam",
-//         rank: "Engineering Services",
-//         city: "Division",
-//         code: "41010000-04/309",
-//         phone: "01939921162",
-//         email: "gm.esd@titasgas.org.bd",
-//         bgColor: "#3C3D37",
-//       },
-//       {
-//         image: "/images/profile.jpg",
-//         post: "General Manager",
-//         name: "Arpana Islam",
-//         rank: "Engineering Services",
-//         city: "Division",
-//         code: "41010000-04/309",
-//         phone: "01939921162",
-//         email: "gm.esd@titasgas.org.bd",
-//       },
-//     ],
-//   },
-//   {
-//     title: "Operations Manager",
-//     cards: 1,
-//     cardsContent: [
-//       {
-//         image: "/images/profile.jpg",
-//         post: "General Manager",
-//         name: "Arpana Islam",
-//         rank: "Engineering Services",
-//         city: "Division",
-//         code: "41010000-04/309",
-//         phone: "01939921162",
-//         email: "gm.esd@titasgas.org.bd",
-//       },
-//     ],
-//   },
-// ];
-
-// const videoFile = [
-//   {
-//     id: 1,
-//     videoUrl: "videos/sample_video-1.mp4",
-//   },
-//   {
-//     id: 2,
-//     videoUrl: "videos/sample_video-2.mp4",
-//   },
-//   {
-//     id: 3,
-//     videoUrl: "videos/sample_video-3.mp4",
-//   },
-//   {
-//     id: 4,
-//     videoUrl: "videos/sample_video-4.mp4",
-//   },
-//   {
-//     id: 5,
-//     videoUrl: "videos/sample_video-5.mp4",
-//   },
-// ];
-
 export default function CustomSlider() {
   const [slides, setSlides] = useState([]);
   const [notice, setNotice] = useState([]);
   const [tvcList, setTvcList] = useState([]);
-  const [currentTitle, setCurrentTitle] = useState(slides[0]?.company_name);
-  const [companyTitle, setCompanyTitle] = useState(slides[0]?.title);
+  const [currentTitle, setCurrentTitle] = useState("");
+  const [companyTitle, setCompanyTitle] = useState("");
   const [showFullImage, setShowFullImage] = useState(true);
 
   useEffect(() => {
@@ -202,10 +19,13 @@ export default function CustomSlider() {
         setSlides(response.data.slides);
         setNotice(response.data.notices);
         setTvcList(response.data.custom_screens);
+
+        setCurrentTitle(slides[0]?.company_name);
+        setCompanyTitle(slides[0]?.title);
+
       })
       .catch((error) => console.error("Error fetching users:", error));
   }, [showFullImage]);
-  console.log("slides", { notice, slides, tvcList, companyTitle });
 
   useEffect(() => {
     const timer = setTimeout(() => {
