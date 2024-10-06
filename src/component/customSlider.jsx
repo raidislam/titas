@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import { getMembers } from "../services/api";
+import Card from "./Card";
 
 export default function CustomSlider() {
   const [slides, setSlides] = useState([]);
@@ -30,7 +31,7 @@ export default function CustomSlider() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowFullImage(false);
-    }, 5000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -76,7 +77,7 @@ export default function CustomSlider() {
           />
         </div>
       ) : (
-        <div className="flex h-screen">
+        <div className="flex h-screen overflow-hidden">
           {/* Main Content Area (80% width) */}
           <div className="w-4/5 h-full">
             {/* Header */}
@@ -94,7 +95,7 @@ export default function CustomSlider() {
 
             {/* Slider Section */}
             <div className="h-full py-8">
-              <Slider {...settings}>
+              {/* <Slider {...settings}>
                 {slides?.map((slide, index) => (
                   <div
                     key={index}
@@ -149,6 +150,40 @@ export default function CustomSlider() {
                     </div>
                   </div>
                 ))}
+              </Slider> */}
+              <Slider {...settings}>
+                {slides?.map((slide, index) => (
+                  <div
+                    key={index}
+                    className="h-full flex justify-center items-center"
+                  >
+                    <div
+                      className={`grid gap-6 px-4 w-full ${
+                        slide.cardsContent.length === 1
+                          ? "grid-cols-1 justify-center"
+                          : slide.cardsContent.length === 2
+                          ? "grid-cols-2 justify-center"
+                          : "grid-cols-3"
+                      }`}
+                    >
+                      {slide.cardsContent.map((card, cardIndex) => (
+                        <div key={cardIndex} className="w-full">
+                          <Card card={card} />
+                        </div>
+                      ))}
+                    </div>
+                    {/* <div className="flex flex-wrap justify-center items-center gap-6 w-full px-4">
+                      {slide.cardsContent.map((card, cardIndex) => (
+                        <div
+                          key={cardIndex}
+                          className="w-full sm:w-1/2 md:w-1/3 px-2"
+                        >
+                          <Card card={card} />
+                        </div>
+                      ))}
+                    </div> */}
+                  </div>
+                ))}
               </Slider>
             </div>
 
@@ -190,7 +225,7 @@ export default function CustomSlider() {
           </div> */}
 
           <div className="w-1/5 bg-gray-900 text-white h-full flex flex-col items-center">
-            <div className="w-full h-1/2 py-4 px-2 flex items-center justify-center">
+            <div className="w-full h-1/2 py-4 px-2 flex items-center justify-center mt-[100px]">
               <div>
                 <h2 className="text-2xl text-center  font-bold mb-2">
                   Notice Board
@@ -199,7 +234,7 @@ export default function CustomSlider() {
               </div>
             </div>
 
-            <div className="w-full h-1/2">
+            <div className="w-full h-1/2 mt-[70px]">
               <Slider {...viddeoSettings} className="h-full">
                 {tvcList?.map((item) => (
                   <div key={item?.id} className="h-full w-full">
