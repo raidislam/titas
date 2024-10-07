@@ -123,7 +123,7 @@ export default function CustomSlider() {
                                 </div>
                             ))}
                           </div>
-                          <div className="grid grid-cols-2 gap-1 justify-center">
+                          <div className="grid grid-cols-2 gap-1 justify-center mt-1">
                             {slide.cardsContent.slice(3).map((card, cardIndex) => (
                                 <div key={cardIndex} className="w-full flex justify-center items-center">
                                   <Card card={card} />
