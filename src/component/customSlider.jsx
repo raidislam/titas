@@ -219,8 +219,8 @@ export default function CustomSlider() {
   const settings = {
     dots: false,
     arrows: false,
-    infinite: true,
-    speed: 500,
+    infinite: false,
+    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -274,64 +274,8 @@ export default function CustomSlider() {
             </header>
 
             {/* Slider Section */}
-            <div className="h-full py-8">
+            <div className="h-full py-3">
               {/* <Slider {...settings}>
-                {slides?.map((slide, index) => (
-                  <div
-                    key={index}
-                    className="h-full flex justify-center items-center"
-                  >
-                    <div className="flex flex-wrap justify-center items-center gap-6 w-full px-4">
-                      {slide.cardsContent.map((card, cardIndex) => (
-                        <div key={cardIndex} className="!flex">
-                          <div
-                            style={{
-                              backgroundColor: `${
-                                card.background_color
-                                  ? card.background_color
-                                  : "#f2f2f2"
-                              }`,
-                            }}
-                            className="flex flex-col items-center border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-                          >
-                            <img
-                              className="object-cover w-full h-full md:w-48 md:rounded-none md:rounded-s-lg"
-                              src={
-                                card.image ? card.image : "/images/profile.jpg"
-                              }
-                              alt="profile image"
-                            />
-                            <div className="flex flex-col justify-between p-4 leading-normal">
-                              <p className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                {card.name}
-                              </p>
-                              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
-                                {card.post}
-                              </p>
-                              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
-                                {card.rank}
-                              </p>
-                              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
-                                {card.city}
-                              </p>
-                              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
-                                {card.code}
-                              </p>
-                              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
-                                {card.phone}
-                              </p>
-                              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
-                                {card.email}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </Slider> */}
-              <Slider {...settings}>
                 {slides?.map((slide, index) => (
                   <div
                     key={index}
@@ -340,9 +284,9 @@ export default function CustomSlider() {
                     <div
                       className={`grid gap-6 px-4 w-full ${
                         slide.cardsContent.length === 1
-                          ? "grid-cols-1 justify-center"
+                          ? "grid-cols-1"
                           : slide.cardsContent.length === 2
-                          ? "grid-cols-2 justify-center"
+                          ? "grid-cols-2"
                           : "grid-cols-3"
                       }`}
                     >
@@ -352,16 +296,54 @@ export default function CustomSlider() {
                         </div>
                       ))}
                     </div>
-                    {/* <div className="flex flex-wrap justify-center items-center gap-6 w-full px-4">
+                  </div>
+                ))}
+              </Slider> */}
+
+              <Slider {...settings}>
+                {slides?.map((slide, index) => (
+                  <div
+                    key={index}
+                    className="h-full !flex justify-center items-center"
+                  >
+                    <div
+                      // className={`grid gap-6 px-4 w-full mx-auto ${
+                      //   slide.cardsContent.length === 1
+                      //     ? "grid-cols-1 place-items-center"
+                      //     : slide.cardsContent.length === 2
+                      //     ? "grid-cols-2"
+                      //     : "grid-cols-3 col-start-1 col-end-4"
+                      // }`}
+
+                      style={{
+                        height: " calc(100vh - 300px)",
+                      }}
+                      className={`${
+                        slide.cardsContent.length === 1 ||
+                        slide.cardsContent.length === 2 ||
+                        slide.cardsContent.length === 4
+                          ? "flex gap-4 flex-wrap justify-center  items-center"
+                          : "grid grid-rows-2 gap-4 px-4 w-full mx-auto"
+                      } ${
+                        slide.cardsContent.length === 1
+                          ? "grid-cols-1 place-items-center"
+                          : slide.cardsContent.length === 2
+                          ? "grid-cols-2"
+                          : slide.cardsContent.length === 3 ||
+                            slide.cardsContent.length === 6 ||
+                            slide.cardsContent.length === 5
+                          ? "grid-cols-3 grid-rows-2"
+                          : ""
+                      }`}
+
+                      // className="flex gap-5 flex-grow flex-wrap justify-center"
+                    >
                       {slide.cardsContent.map((card, cardIndex) => (
-                        <div
-                          key={cardIndex}
-                          className="w-full sm:w-1/2 md:w-1/3 px-2"
-                        >
+                        <div key={cardIndex}>
                           <Card card={card} />
                         </div>
                       ))}
-                    </div> */}
+                    </div>
                   </div>
                 ))}
               </Slider>

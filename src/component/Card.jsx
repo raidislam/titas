@@ -9,11 +9,11 @@ export default function Card({ card }) {
       className="flex flex-col h-full items-center border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
     >
       <img
-        className="object-cover h-full md:w-48 md:rounded-none md:rounded-s-lg"
+        className="object-cover h-full  md:w-48 md:rounded-none md:rounded-s-lg"
         src={card.image ? card.image : "/images/profile.jpg"}
         alt="profile image"
       />
-      <div className="flex flex-col justify-between p-4 leading-normal">
+      <div className="flex flex-col justify-between p-4 leading-normal flex-grow">
         <p className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           {card.name}
         </p>
