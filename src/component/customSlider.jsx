@@ -207,7 +207,7 @@ export default function CustomSlider() {
             </div>
 
             {/* Footer */}
-            <footer className="fixed w-full bottom-0 p-4 bg-gray-800 text-white text-2xl">
+            <footer className="fixed w-full bottom-0 p-4 bg-[#1565c0] text-white text-2xl">
               <marquee>{notice?.[0]?.text_en}</marquee>
             </footer>
           </div>
