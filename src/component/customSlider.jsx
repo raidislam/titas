@@ -1,55 +1,55 @@
-import { useEffect, useState } from "react"
-import Slider from "react-slick"
-import "slick-carousel/slick/slick-theme.css"
-import "slick-carousel/slick/slick.css"
-import { getMembers } from "../services/api"
-import Card from "./Card"
+import { useEffect, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import { getMembers } from "../services/api";
+import Card from "./Card";
 
 export default function CustomSlider() {
-  const [slides, setSlides] = useState([])
-  const [notice, setNotice] = useState([])
-  const [tvcList, setTvcList] = useState([])
-  const [currentTitle, setCurrentTitle] = useState("")
-  const [companyTitle, setCompanyTitle] = useState("")
-  const [showFullImage, setShowFullImage] = useState(true)
+  const [slides, setSlides] = useState([]);
+  const [notice, setNotice] = useState([]);
+  const [tvcList, setTvcList] = useState([]);
+  const [currentTitle, setCurrentTitle] = useState("");
+  const [companyTitle, setCompanyTitle] = useState("");
+  const [showFullImage, setShowFullImage] = useState(true);
 
   useEffect(() => {
     // Fetch users when the component mounts
     getMembers()
       .then((response) => {
-        setSlides(response.data.slides)
-        setNotice(response.data.notices)
-        setTvcList(response.data.custom_screens)
+        setSlides(response.data.slides);
+        setNotice(response.data.notices);
+        setTvcList(response.data.custom_screens);
 
-        setCurrentTitle(slides[0]?.company_name)
-        setCompanyTitle(slides[0]?.title)
+        setCurrentTitle(slides[0]?.company_name);
+        setCompanyTitle(slides[0]?.title);
       })
-      .catch((error) => console.error("Error fetching users:", error))
-  }, [showFullImage])
+      .catch((error) => console.error("Error fetching users:", error));
+  }, [showFullImage]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowFullImage(false)
-    }, 1000)
+      setShowFullImage(false);
+    }, 1000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   const settings = {
     dots: false,
     arrows: false,
     infinite: true,
-    speed: 5000,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 800,
     beforeChange: (oldIndex, newIndex) => {
-      setCurrentTitle(slides[newIndex].company_name)
-      setCompanyTitle(slides[newIndex].title)
+      setCurrentTitle(slides[newIndex].company_name);
+      setCompanyTitle(slides[newIndex].title);
     },
     draggable: false,
-  }
+  };
 
   const viddeoSettings = {
     dots: false, // Show dots for each slide
@@ -63,7 +63,7 @@ export default function CustomSlider() {
     pauseOnHover: false, // Don't stop autoplay when hovering over the slider
     waitForAnimate: false, // Don't wait for animation to finish before next slide
     arrows: false, // Hide navigation arrows if not needed
-  }
+  };
 
   return (
     <div className="">
@@ -153,7 +153,7 @@ export default function CustomSlider() {
                       </>
                     )}
                     {slide.cardsContent.length === 4 && (
-                      <div className="grid grid-cols-2 gap-1 justify-center">
+                      <div className="grid grid-cols-2 gap-3 justify-center">
                         {slide.cardsContent.map((card, cardIndex) => (
                           <div
                             key={cardIndex}
@@ -263,5 +263,5 @@ export default function CustomSlider() {
         </div>
       )}
     </div>
-  )
+  );
 }

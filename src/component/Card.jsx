@@ -5,34 +5,36 @@ export default function Card({ card }) {
         backgroundColor: `${
           card.background_color ? card.background_color : "#f2f2f2"
         }`,
+        boxShadow:
+          "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
       }}
-      className="flex flex-col h-full items-center border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+      className="flex flex-col w-full h-full  border rounded-sm  md:flex-row md:max-w-xl "
     >
       <img
-        className="object-cover h-full md:w-48 md:rounded-none md:rounded-s-lg"
+        className="object-fit h-32 "
         src={card.image ? card.image : "/images/profile.jpg"}
         alt="profile image"
       />
-      <div className="flex flex-col justify-between p-4 leading-normal">
-        <p className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <div className="flex flex-col justify-between px-3 leading-normal">
+        <p className="mb-1 text-base font-bold tracking-tight text-gray-900 dark:text-white">
           {card.name}
         </p>
-        <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
+        <p className="text-sm font-medium text-gray-700 dark:text-gray-400">
           {card.post}
         </p>
-        <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
+        <p className="text-sm font-medium text-gray-700 dark:text-gray-400">
           {card.rank}
         </p>
-        <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
+        <p className="text-sm font-medium text-gray-700 dark:text-gray-400">
           {card.city}
         </p>
-        <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
+        <p className="text-sm font-medium text-gray-700 dark:text-gray-400">
           {card.code}
         </p>
-        <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
+        <p className="text-sm font-medium text-gray-700 dark:text-gray-400">
           {card.phone}
         </p>
-        <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
+        <p className="text-sm font-medium text-gray-700 dark:text-gray-400">
           {card.email}
         </p>
       </div>
