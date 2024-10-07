@@ -30,7 +30,7 @@ export default function CustomSlider() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowFullImage(false);
-    }, 1000);
+    }, 8000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -39,11 +39,12 @@ export default function CustomSlider() {
     dots: false,
     arrows: false,
     infinite: true,
-    speed: 500,
+    speed: 8000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 800,
+    fade: true,
     beforeChange: (oldIndex, newIndex) => {
       setCurrentTitle(slides[newIndex].company_name);
       setCompanyTitle(slides[newIndex].title);
@@ -55,20 +56,20 @@ export default function CustomSlider() {
     dots: false, // Show dots for each slide
     fade: true, // Enable fade effect between slides
     infinite: true, // Enable infinite scrolling of slides
-    speed: 500, // Slide transition speed (0.5s)
+    speed: 8000, // Slide transition speed (0.5s)
     slidesToShow: 1, // Only show 1 slide at a time
     slidesToScroll: 1, // Scroll 1 slide at a time
     autoplay: true, // Enable autoplay
     autoplaySpeed: 3000, // Autoplay slide every 3 seconds
     pauseOnHover: false, // Don't stop autoplay when hovering over the slider
-    waitForAnimate: false, // Don't wait for animation to finish before next slide
+    waitForAnimate: true, // Don't wait for animation to finish before next slide
     arrows: false, // Hide navigation arrows if not needed
   };
 
   return (
     <div className="">
       {showFullImage ? (
-        <div className="fixed inset-0 w-full h-full bg-[#00a3e8]">
+        <div className="fixed inset-0 w-full h-full bg-[#00ADEF]">
           <div className="relative">
             <img
               className="w-full h-full object-cover"
@@ -81,24 +82,24 @@ export default function CustomSlider() {
           </div>
         </div>
       ) : (
-        <div className="flex h-screen overflow-hidden">
+        <div className="flex h-screen overflow-hidden bg-[#A8D6F1]">
           {/* Main Content Area (80% width) */}
           <div className="w-4/5 h-full">
             {/* Header */}
-            <header className="w-full p-4 bg-gray-800 text-white flex items-center z-10">
+            <header className="w-full p-4 bg-[#A8D6F1] text-white flex items-center z-10 ">
               <div>
-                <img className="h-16" src="/images/logo-1.png" alt="logo" />
+                <img className="h-52" src="/images/logo-1.png" alt="logo" />
               </div>
               <div className="flex items-center justify-center w-full">
                 <div className="text-center">
-                  <h2 className="text-4xl mb-2">{currentTitle}</h2>
-                  <h2 className="text-3xl underline">{companyTitle}</h2>
+                  <h2 className="text-4xl mb-2 text-[#00ADEF]">{currentTitle}</h2>
+                  <h2 className="text-3xl underline text-[#FF0000]">{companyTitle}</h2>
                 </div>
               </div>
             </header>
 
             {/* Slider Section */}
-            <div className="h-full py-8">
+            <div className="h-full py-8 mx-4">
               <Slider {...settings}>
                 {slides?.map((slide, index) => (
                   <div
@@ -113,11 +114,11 @@ export default function CustomSlider() {
                       ))}
                     </div>*/}
                     {slide.cardsContent.length === 6 && (
-                      <div className="grid grid-cols-3 gap-1 justify-center">
+                      <div className="grid grid-cols-3 gap-2 justify-center">
                         {slide.cardsContent.map((card, cardIndex) => (
                           <div
                             key={cardIndex}
-                            className="w-full flex justify-center items-center"
+                            className="w-full flex justify-center items-center p-2"
                           >
                             <Card card={card} />
                           </div>
@@ -126,7 +127,7 @@ export default function CustomSlider() {
                     )}
                     {slide.cardsContent.length === 5 && (
                       <>
-                        <div className="grid grid-cols-3 gap-1 justify-center">
+                        <div className="grid grid-cols-3 gap-2 justify-center">
                           {slide.cardsContent
                             .slice(0, 3)
                             .map((card, cardIndex) => (
@@ -138,7 +139,7 @@ export default function CustomSlider() {
                               </div>
                             ))}
                         </div>
-                        <div className="grid grid-cols-2 gap-1 justify-center mt-1">
+                        <div className="grid grid-cols-2 gap-2 justify-center mt-5">
                           {slide.cardsContent
                             .slice(3)
                             .map((card, cardIndex) => (
@@ -153,7 +154,7 @@ export default function CustomSlider() {
                       </>
                     )}
                     {slide.cardsContent.length === 4 && (
-                      <div className="grid grid-cols-2 gap-3 justify-center">
+                      <div className="grid grid-cols-2 gap-2 justify-center">
                         {slide.cardsContent.map((card, cardIndex) => (
                           <div
                             key={cardIndex}
@@ -165,7 +166,7 @@ export default function CustomSlider() {
                       </div>
                     )}
                     {slide.cardsContent.length === 3 && (
-                      <div className="grid grid-cols-3 gap-1 justify-center">
+                      <div className="grid grid-cols-3 gap-2 justify-center">
                         {slide.cardsContent.map((card, cardIndex) => (
                           <div
                             key={cardIndex}
@@ -177,7 +178,7 @@ export default function CustomSlider() {
                       </div>
                     )}
                     {slide.cardsContent.length === 2 && (
-                      <div className="grid grid-cols-2 gap-1 justify-center">
+                      <div className="grid grid-cols-2 gap-2 justify-center">
                         {slide.cardsContent.map((card, cardIndex) => (
                           <div
                             key={cardIndex}
@@ -189,7 +190,7 @@ export default function CustomSlider() {
                       </div>
                     )}
                     {slide.cardsContent.length === 1 && (
-                      <div className="grid grid-cols-1 gap-1 justify-center">
+                      <div className="grid grid-cols-1 gap-2 justify-center">
                         {slide.cardsContent.map((card, cardIndex) => (
                           <div
                             key={cardIndex}

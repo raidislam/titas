@@ -7,6 +7,7 @@ export default function Card({ card }) {
         }`,
         boxShadow:
           "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+        height: "fit-content",
       }}
       className="flex flex-col w-full h-full  border rounded-sm  md:flex-row md:max-w-xl "
     >
