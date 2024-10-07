@@ -68,12 +68,17 @@ export default function CustomSlider() {
   return (
     <div className="">
       {showFullImage ? (
-        <div className="fixed inset-0 w-full h-full bg-black">
-          <img
-            className="w-full h-full object-cover"
-            src="/images/Slide-Show-home-page.png"
-            alt="Full screen"
-          />
+        <div className="fixed inset-0 w-full h-full bg-[#00a3e8]">
+          <div className="relative">
+            <img
+              className="w-full h-full object-cover"
+              src="/images/titasRound.png"
+              alt="Full screen"
+            />
+            <h2 className="absolute z-10 text-white font-bold text-5xl bottom-20 left-96">
+              তিতাস গ্যাস ট্রান্সমিসন অ্যান্ড ডিস্ট্রিবিউশন পিএলসি
+            </h2>
+          </div>
         </div>
       ) : (
         <div className="flex h-screen overflow-hidden">
