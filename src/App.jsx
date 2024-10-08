@@ -1,7 +1,9 @@
 import Card2 from "./component/Card2"
+import CustomSlider from "./component/customSlider"
 import Header from "./component/header"
 
 function App() {
+  // return <CustomSlider />;
   return (
     <div className="overflow-hidden relative h-screen font-roboto flex flex-col">
       <div className="flex-1 flex relative w-full z-10">
