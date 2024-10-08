@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import "slick-carousel/slick/slick-theme.css"
 import "slick-carousel/slick/slick.css"
 
-export default function CustomSlider() {
+export default function SplashSlider() {
   // const [slides, setSlides] = useState([])
   // const [notice, setNotice] = useState([])
   // const [tvcList, setTvcList] = useState([])
