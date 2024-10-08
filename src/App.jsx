@@ -6,6 +6,7 @@ import { getMembers } from "./services/api"
 import { cn } from "./utils"
 
 function App() {
+  const [setting, setSetting] = useState([])
   const [slides, setSlides] = useState([])
   const [index, setIndex] = useState(0)
   const [notice, setNotice] = useState([])
@@ -16,6 +17,7 @@ function App() {
     // Fetch users when the component mounts
     getMembers()
       .then(response => {
+          setSetting(response.data.setting)
         setSlides(response.data.slides)
         setNotice(response.data.notices)
         setVideo(response.data.custom_screens)
@@ -27,7 +29,7 @@ function App() {
     // make a slider change index every 5 seconds
     const timer = setInterval(() => {
       setIndex(index => (index >= slides.length - 1 ? 0 : index + 1))
-    }, 5 * 1000)
+    }, setting?.interval_seconds * 1000)
 
     return () => clearInterval(timer)
   }, [slides])
@@ -35,7 +37,7 @@ function App() {
 
   return (
     <div className="overflow-hidden relative h-screen font-roboto flex flex-col">
-      {/* <SplashSlider /> */}
+       <SplashSlider />
       <div className="flex-1 flex relative w-full z-10">
         <div className="w-[70%] p-[2.6vw] flex flex-col h-full relative">
           <div className="h-full z-20 flex flex-col">
