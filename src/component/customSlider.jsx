@@ -30,7 +30,7 @@ export default function CustomSlider() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowFullImage(false);
-    }, 23331000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
