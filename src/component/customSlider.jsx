@@ -30,7 +30,7 @@ export default function CustomSlider() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowFullImage(false);
-    }, 1000);
+    }, 23331000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -42,7 +42,7 @@ export default function CustomSlider() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 800,
     beforeChange: (oldIndex, newIndex) => {
       setCurrentTitle(slides[newIndex].company_name);
@@ -68,16 +68,22 @@ export default function CustomSlider() {
   return (
     <div className="">
       {showFullImage ? (
-        <div className="fixed inset-0 w-full h-full bg-[#00a3e8]">
+        <div className="fixed inset-0 w-full h-full bg-[#00ADEE]">
           <div className="relative">
-            <img
-              className="w-full h-full object-cover"
-              src="/images/titasRound.png"
-              alt="Full screen"
-            />
-            <h2 className="absolute z-10 text-white font-bold text-5xl bottom-20 left-96">
-              তিতাস গ্যাস ট্রান্সমিসন অ্যান্ড ডিস্ট্রিবিউশন পিএলসি
-            </h2>
+            <div className="flex items-center justify-center h-screen">
+              <div className="flex flex-col items-center gap-10 absolute w-full">
+                <div className="">
+                  <img
+                    className="h-[250px] object-cover"
+                    src="/images/homeLogo.svg"
+                    alt="Full screen"
+                  />
+                </div>
+                <h2 className=" text-white font-bold text-5xl">
+                  Titas Gas Transmission & Distribution PLC.
+                </h2>
+              </div>
+            </div>
           </div>
         </div>
       ) : (
