@@ -3,9 +3,9 @@ import CustomSlider from "./component/customSlider"
 import Header from "./component/header"
 
 function App() {
-  // return <CustomSlider />;
   return (
     <div className="overflow-hidden relative h-screen font-roboto flex flex-col">
+      <CustomSlider />
       <div className="flex-1 flex relative w-full z-10">
         <div className="w-[70%] p-[2.6vw] flex flex-col h-full relative">
           <div className="h-full z-20 flex flex-col">
