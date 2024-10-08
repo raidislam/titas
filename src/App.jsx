@@ -35,7 +35,7 @@ function App() {
             }}
           />
         </div>
-        <div className="w-[30%] bg-[#F2F5FA] flex-grow px-[1.875vw] flex justify-center gap-10 flex-col">
+        <div className="w-[29vw] bg-[#F2F5FA] flex-grow px-[1.875vw] flex justify-center gap-10 flex-col">
           <video className="w-full object-cover rounded" autoPlay muted loop playsInline preload="auto">
             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
             Your browser does not support the video tag.
