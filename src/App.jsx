@@ -29,6 +29,7 @@ function App() {
               backgroundImage: "url(/images/shadow-image.svg)",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
+              backgroundSize: "30vw",
             }}
           />
         </div>
