@@ -76,7 +76,7 @@ function App() {
         </div>
       </div>
       <footer className="bg-[#333290] text-[#fff] w-full h-[9.25vh] relative flex items-center">
-        <marquee className="text-[1.75vw]">{notice?.[0]?.text_en}</marquee>
+        <marquee className="text-[1.75vw]">{notice?.[0]?.text_en} {notice?.[0]?.text_bn}</marquee>
       </footer>
     </div>
   )
