@@ -1,9 +1,9 @@
 import React from "react";
 
 export default function Header({ company_name, title, index, logo }) {
-    let titleColor = "#008080";
-    if(index > 3) {
-        titleColor = "#df4259";
+    let titleColor = "#FF0000";
+    if(index < 4) {
+        titleColor = "#008080";
     }
     return (
     <div className="flex">
