@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 
-export default function Header({ company_name, title }) {
+export default function Header({ company_name, title, logo }) {
   return (
     <div className="flex">
       <div className="w-[8vw]">
-        <img className="w-full" src="/images/titasgas.png" alt="" />
+        <img className="w-full" src={logo?.logo} alt="" />
       </div>
       <div className="text-center flex justify-center items-center flex-1">
         <div className="">
@@ -15,5 +15,5 @@ export default function Header({ company_name, title }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
