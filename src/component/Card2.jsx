@@ -24,7 +24,7 @@ function Card2({ cardInfo, className }) {
           <h4 className="text-back text-[0.9vw] font-bold tracking-[0.84px] mb-[0.4vw]">
             {cardInfo?.name}
           </h4>
-          <p className="text-[#202020] text-[0.5vw] font-medium mb-[0.1vw]">
+          <p className="text-[#202020] text-[0.6vw] font-medium mb-[0.1vw]">
             {cardInfo?.post}
           </p>
           <p className="text-[#202020] text-[0.6vw] font-medium mb-[0.1vw]">

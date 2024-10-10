@@ -50,6 +50,7 @@ function App() {
             <Header
               company_name={slides[index]?.company_name}
               title={slides[index]?.title}
+              index={index}
               logo={setting}
             />
             <div className="flex-1 flex justify-center items-center">
