@@ -19,7 +19,7 @@ export default function SplashSlider({ setting }) {
     <div
       className="z-50 fixed inset-0 w-full h-full "
       style={{
-        backgroundColor: setting?.home_page ? setting?.home_page : "#00a2e8",
+        backgroundColor: setting?.home_page,
       }}
     >
       <div className="relative">
@@ -33,7 +33,7 @@ export default function SplashSlider({ setting }) {
               />
             </div>
             <h2 className="font-poppins text-white font-bold text-[2.25vw]">
-              { setting?.company_name_bn || "তিতাস গ্যাস ট্রান্সমিসন অ্যান্ড ডিস্ট্রিবিউশন পিএলসি"}
+              { setting?.company_name_bn}
             </h2>
           </div>
         </div>
