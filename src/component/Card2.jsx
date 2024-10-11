@@ -34,7 +34,6 @@ function Card2({ cardInfo, className }) {
           <p className={`text-[${textColor}] text-[0.6vw] font-medium mb-[0.1vw]`}>
             {cardInfo?.rank}
           </p>
-          {/* {cardInfo?.city && <p className="text-[#202020] text-[0.6vw] font-medium mb-[0.1vw]">{cardInfo?.city}</p>} */}
           <p className={`text-[${textColor}] text-[0.6vw] font-medium mb-[0.1vw]`}>
             {cardInfo?.code}
           </p>
