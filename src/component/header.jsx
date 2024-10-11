@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Header({ company_name, title, index, setting }) {
     let titleColor = setting?.floor_slide_title_color;
-    if(index < 3) {
+    if(index < 4) {
         titleColor = setting?.designation_slide_title_color;
     }
     return (
