@@ -25,7 +25,7 @@ function Card2({ cardInfo, className }) {
           />
         </div>
         <div className="flex flex-col gap-y-1 flex-1">
-          <h4 className={`text-[${textColor}] text-[0.9vw] font-bold tracking-[0.84px] mb-[0.4vw]`}>
+          <h4 className={`text-[${textColor}] text-[0.7vw] font-bold tracking-[0.84px] mb-[0.4vw]`}>
             {cardInfo?.name}
           </h4>
           <p className={`text-[${textColor}] text-[0.6vw] font-medium mb-[0.1vw]`}>
@@ -39,8 +39,7 @@ function Card2({ cardInfo, className }) {
             {cardInfo?.code}
           </p>
           <p className={`text-[${textColor}] text-[0.6vw] font-medium mb-[0.1vw]`}>
-            {" "}
-            {cardInfo?.phone}
+            {cardInfo?.phone.join(", ")}
           </p>
           <p className={`text-[${textColor}] text-[0.6vw] font-medium mb-[0.1vw]`}>
             {cardInfo?.email}

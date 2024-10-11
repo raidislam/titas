@@ -33,7 +33,7 @@ export default function SplashSlider({ setting }) {
               />
             </div>
             <h2 className="font-poppins text-white font-bold text-[2.25vw]">
-              {setting?.company_name || "তিতাস গ্যাস ট্রান্সমিসন অ্যান্ড ডিস্ট্রিবিউশন পিএলসি"}
+              তিতাস গ্যাস ট্রান্সমিসন অ্যান্ড ডিস্ট্রিবিউশন পিএলসি
             </h2>
           </div>
         </div>
