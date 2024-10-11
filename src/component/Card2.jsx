@@ -2,6 +2,7 @@ import React from "react";
 import { cn } from "../utils";
 
 function Card2({ cardInfo, className }) {
+  const textColor = cardInfo?.text_color || "#202020";
   return (
     <div
       className={cn(
@@ -10,6 +11,9 @@ function Card2({ cardInfo, className }) {
       )}
       style={{
         backgroundColor: cardInfo?.background_color,
+        color: textColor,
+        fontStyle: cardInfo?.font_name,
+        fontSize: cardInfo?.font_size,
       }}
     >
       <div className="flex gap-[0.75vw] p-[0.26vw] items-stretch">
@@ -21,24 +25,24 @@ function Card2({ cardInfo, className }) {
           />
         </div>
         <div className="flex flex-col gap-y-1 flex-1">
-          <h4 className="text-back text-[0.9vw] font-bold tracking-[0.84px] mb-[0.4vw]">
+          <h4 className={`text-[${textColor}] text-[0.9vw] font-bold tracking-[0.84px] mb-[0.4vw]`}>
             {cardInfo?.name}
           </h4>
-          <p className="text-[#202020] text-[0.6vw] font-medium mb-[0.1vw]">
+          <p className={`text-[${textColor}] text-[0.6vw] font-medium mb-[0.1vw]`}>
             {cardInfo?.post}
           </p>
-          <p className="text-[#202020] text-[0.6vw] font-medium mb-[0.1vw]">
+          <p className={`text-[${textColor}] text-[0.6vw] font-medium mb-[0.1vw]`}>
             {cardInfo?.rank}
           </p>
           {/* {cardInfo?.city && <p className="text-[#202020] text-[0.6vw] font-medium mb-[0.1vw]">{cardInfo?.city}</p>} */}
-          <p className="text-[#202020] text-[0.6vw] font-medium mb-[0.1vw]">
+          <p className={`text-[${textColor}] text-[0.6vw] font-medium mb-[0.1vw]`}>
             {cardInfo?.code}
           </p>
-          <p className="text-[#202020] text-[0.6vw] font-medium mb-[0.1vw]">
+          <p className={`text-[${textColor}] text-[0.6vw] font-medium mb-[0.1vw]`}>
             {" "}
             {cardInfo?.phone}
           </p>
-          <p className="text-[#202020] text-[0.6vw] font-medium mb-[0.1vw]">
+          <p className={`text-[${textColor}] text-[0.6vw] font-medium mb-[0.1vw]`}>
             {cardInfo?.email}
           </p>
         </div>

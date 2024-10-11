@@ -15,7 +15,7 @@ export default function Header({ company_name, title, index, logo }) {
           <h2 className="text-[#202020] text-[1.75vw] font-bold tracking-wider mb-2 font-poppins">
             {company_name || "Titas Gas Transmission & Distribution PLC."}
           </h2>
-          <p className={`text-[${titleColor}] text-[1.35vw] font-poppins`}>{title}</p>
+          <p style={{color: titleColor}} className={`text-[${titleColor}] text-[1.35vw] font-poppins`}>{title}</p>
         </div>
       </div>
     </div>

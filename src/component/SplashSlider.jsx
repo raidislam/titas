@@ -28,12 +28,12 @@ export default function SplashSlider({ setting }) {
             <div className="h-[15vw]">
               <img
                 className="w-[15vw] object-cover"
-                src={setting?.logo}
+                src={setting?.logo || "/images/updatedlogo.png"}
                 alt="Full screen"
               />
             </div>
             <h2 className="font-poppins text-white font-bold text-[2.25vw]">
-              তিতাস গ্যাস ট্রান্সমিসন অ্যান্ড ডিস্ট্রিবিউশন পিএলসি
+              {setting?.company_name || "তিতাস গ্যাস ট্রান্সমিসন অ্যান্ড ডিস্ট্রিবিউশন পিএলসি"}
             </h2>
           </div>
         </div>
