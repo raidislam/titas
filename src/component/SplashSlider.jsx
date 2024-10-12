@@ -33,7 +33,7 @@ export default function SplashSlider({ setting }) {
               />
             </div>
             <h2 className="font-poppins text-white font-bold text-[2.25vw]">
-              { setting?.company_name_bn}
+              {setting?.company_name_bn}
             </h2>
           </div>
         </div>
