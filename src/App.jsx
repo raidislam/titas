@@ -21,7 +21,6 @@ function App() {
         setSlides(response.data.slides)
         setNotice(response.data.notices)
         setVideo(response.data.custom_screens)
-        console.log(response)
       })
       .catch(error => console.error("Error fetching users:", error))
   }, [])

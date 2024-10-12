@@ -26,7 +26,7 @@ const CardContainer = ({ data }) => {
       })}>
       {sortedGroups.map(([order, cards]) => (
         <div key={order} className="flex flex-wrap justify-center items-center gap-[1.82vw] w-full mb-8">
-          {cards.map((cardInfo, index) => (
+          {cards.sort((a, b) => a.order - b.order) .map((cardInfo, index) => (
             <Card2 cardInfo={cardInfo} className="w-[30%]" key={index} />
           ))}
         </div>
