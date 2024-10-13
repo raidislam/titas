@@ -32,7 +32,7 @@ export default function SplashSlider({ setting }) {
                 alt="Full screen"
               />
             </div>
-            <h2 className="font-poppins text-white font-bold text-[2.25vw]">
+            <h2 className="font-poppins text-white font-bold text-[3.25vw]">
               {setting?.company_name_bn}
             </h2>
           </div>
