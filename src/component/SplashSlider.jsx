@@ -24,7 +24,7 @@ export default function SplashSlider({ setting }) {
     >
       <div className="relative">
         <div className="flex items-center justify-center h-screen">
-          <div className="flex flex-col items-center gap-[6.04vw] absolute w-full">
+          <div className="flex flex-col items-center gap-[8.04vw] absolute w-full">
             <div className="h-[15vw]">
               <img
                 className="w-[25vw] object-cover"

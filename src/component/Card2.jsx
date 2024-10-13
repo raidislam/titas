@@ -13,7 +13,7 @@ function Card2({ cardInfo, className }) {
         fontSize: cardInfo?.font_size,
       }}>
       <div className="flex gap-[0.75vw] p-[0.26vw] items-stretch">
-        <div className="w-[5.5vw]">
+        <div className="w-[6.0vw] h-[7.5vw]">
           <img className="w-full h-full object-cover rounded-lg" src={cardInfo?.image} alt="" />
         </div>
         <div className="flex flex-col gap-y-1 flex-1">
