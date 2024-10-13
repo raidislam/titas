@@ -24,10 +24,10 @@ export default function SplashSlider({ setting }) {
     >
       <div className="relative">
         <div className="flex items-center justify-center h-screen">
-          <div className="flex flex-col items-center gap-[1.04vw] absolute w-full">
+          <div className="flex flex-col items-center gap-[6.04vw] absolute w-full">
             <div className="h-[15vw]">
               <img
-                className="w-[15vw] object-cover"
+                className="w-[25vw] object-cover"
                 src={setting?.logo || "/images/updatedlogo.png"}
                 alt="Full screen"
               />
